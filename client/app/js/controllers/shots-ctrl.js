@@ -3,7 +3,7 @@ ShotsController.$inject = ['$scope','$routeParams','ShotFactory','MenuFactory'];
 function ShotsController($scope, $routeParams, ShotFactory, MenuFactory) {
     var vm = this;
     $scope.shots       = [];
-    
+    $scope.searchText  = "";
     $scope.sortShorts  = MenuFactory.getSort();
     $scope.widthShorts = MenuFactory.getWidthShots();
     
@@ -22,8 +22,6 @@ function ShotsController($scope, $routeParams, ShotFactory, MenuFactory) {
     // armazenado o retorno.
     promise.then(( response )=>{
                     $scope.shots = response.data;
-                    //console.log('response', $scope.shots);
-                    //console.log(JSON.stringify('data',response.data[0]));
                 })
                 .catch((error)=>console.log(error));
 }

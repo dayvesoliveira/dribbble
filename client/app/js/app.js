@@ -10,6 +10,7 @@ import ShotsMenuHeaderDirective from './directives/shots-menu-header-directive';
 import ScreenshotModule from './screenshotModule';
 import ServicesModule from './servicesModule';
 import ShotFactory from './services/shot-factory';
+import ShotFilter from './filters/shot-filter';
 
 import AppRoutes from './routes';
 
@@ -20,4 +21,5 @@ angular.module('AppDribble', ['ngRoute','ServicesModule','ScreenshotModule'])
        .controller('MenuNavController', MenuNavController)
        .controller('ChangeWidthController', ChangeWidthController)
        .directive('shotsMenuHeader', ShotsMenuHeaderDirective)
-       .directive('buttonNav', ButtonNavDirective);
+       .directive('buttonNav', ButtonNavDirective)
+       .filter('shotFilter', ShotFilter);

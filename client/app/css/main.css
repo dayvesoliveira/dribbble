@@ -243,15 +243,23 @@ input.search-text {
   border-radius: 4px; }
 
 @media only screen and (max-width: 959px) {
+  /*#nav-menu li.firstChild {
+		&#search-input {
+			float: right;
+			margin: 15px 0;
+			position: absolute;
+			right: 5px;
+			visibility: hidden;
+		}
+	}*/
+  #nav-menu #search-input {
+    display: none; }
   #nav-menu li.firstChild#search-input {
     float: right;
     margin: 15px 0;
     position: absolute;
     right: 5px;
     visibility: hidden; }
-  /*#search-input {
-		visibility: hidden;
-	}*/
   input.search-text {
     width: calc(100% - 10px);
     padding-top: 10px;

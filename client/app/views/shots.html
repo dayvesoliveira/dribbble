@@ -16,6 +16,14 @@
             <div id="content">
                 <div id="main" class="main-full">
 
+                    <!-- message -->
+
+                    <div class="row">
+                        <div class="column column-12">
+                            <p ng-show="mensagem.length">{{mensagem}}</p>
+                        </div>
+                    </div>
+
                     <!-- avatar -->
 
                     <div class="row">
@@ -36,22 +44,22 @@
                     <!-- rede social -->
 
                     <div class="row">
-                        <div class="column column-2"></div>
-                        <div class="column column-5">
+                        <div class="column column-2 column-12"></div>
+                        <div class="column column-5 column-12">
                             <div class="the-shot">
                                 <div class="single">
                                     <img src="{{shot.images.normal}}"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="column column-5 shot-view">
+                        <div class="column column-5 column-12 shot-view">
                             <ul class="shot-stats">
                                 <li>
-                                    <a href="{{shot.user.likes_url}}">
+                                    <a href="#" ng-click="clickLikeShot(shot)">
                                         <img src="/app/images/icon-shotstat-like.png" alt="Icon shotstat like">
                                         <span class="statsnum">Like?</span>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" ng-click="clickLikeShot(shot)">
                                         <span class="statsnum">{{shot.user.likes_count}} Likes</span>
                                     </a>
                                 </li>
@@ -66,6 +74,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <br/>
                         <div class="row">
                             <div class="column column-12">
                                 <span>{{shot.user.bio}}</span>
@@ -73,12 +82,6 @@
                         </div>
                     </div>
 
-                    <screenshot>
-                        <screenshot-item ng-repeat="item in shots" id="screenshot-{{item.id}}">
-                            <screenshot-attribute></screenshot-attribute>
-                            <screenshot-extras></screenshot-extras>
-                        </screenshot-item>
-                    </screenshot>
                 </div>
             </div>
         </div>

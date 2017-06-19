@@ -11,7 +11,6 @@ function ShotsMenuController( $scope ) {
         {url:'/shots?list=playoffs', name:'Playoffs'}
     ];
     
-    //console.log('menuItens',$scope.menuItens);
 }
 
 export default ShotsMenuController;

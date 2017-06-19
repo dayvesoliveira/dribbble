@@ -19,12 +19,8 @@ function AppRoutes($routeProvider, $locationProvider) {
         controller:  'ShotsController',
         templateUrl: '/app/views/shots-content.html'
     })
-    .when('/?sort=recent', {
+    .when('/likes/:shotsId', {
         controller:  'ShotsController',
-        templateUrl: '/app/views/shots-content.html'
-    })
-    .when('/?page=:pageNumber&per_page=:pageSize', {
-        controller: 'ShotsController',
         templateUrl: '/app/views/shots-content.html'
     });
 

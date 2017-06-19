@@ -7,6 +7,7 @@ function ShotFactory( $http ){
     shotFactory.getList     = getList;
     shotFactory.getTypeList = getTypeList;
     shotFactory.page        = page;
+    shotFactory.likeShot    = likeShot;
 
     /** 
      * @method _page
@@ -47,6 +48,10 @@ function ShotFactory( $http ){
      */
     function _get( url ){
         return $http.get( url ? url : _urlapi ,{headers:{'Authorization': TOKEN}});
+    }
+
+    function likeShot( shot ){
+        return $http.post( shot.user.likes_url ,{headers:{'Authorization': TOKEN}});
     }
 
     return shotFactory;

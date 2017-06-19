@@ -27,10 +27,9 @@
         <div ng-controller="MenuNavController as menuNavCtrl">
             <button-nav ng-click="menuNavCtrl.clickButton()"></button-nav>
             <ul id="nav-menu" ng-class="menuNavCtrl.myVar">
-                <li id="search-input">
-                    <form id="formSearchShot" action="https://dribbble.com/search">
-                        <input class="search-text" placeholder="Search" value=""/>
-                    </form>
+                <li id="search-input" ng-class="menuNavCtrl.classVisSearch">
+                    <input class="search-text" placeholder="Search"
+                        ng-model="searchText" />
                 </li>
                 <li id="shots-li">
                     <a class="has-sub">Shots</a>

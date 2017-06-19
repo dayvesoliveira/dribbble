@@ -7,7 +7,13 @@ function ButtonNavDirective() {
     controller: [MenuNavController],
     controllerAs: 'btnNavCtrl',
     templateUrl: '/app/views/directives/button-nav/button-nav-directive.html',
-    replace: true
+    replace: true,
+
+    link: linkPost
+  }
+
+  function linkPost(scope, element, attr, btnNavCtrl){
+      
   }
 }
 

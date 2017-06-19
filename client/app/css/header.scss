@@ -223,7 +223,7 @@ input.search-text {
 }
 
 @media only screen and (max-width: $break-middle) {
-	#{$base-nav} li.firstChild {
+	/*#{$base-nav} li.firstChild {
 		&#search-input {
 			float: right;
 			margin: 15px 0;
@@ -231,10 +231,22 @@ input.search-text {
 			right: 5px;
 			visibility: hidden;
 		}
-	}
-	/*#search-input {
-		visibility: hidden;
 	}*/
+	#{$base-nav} {
+		#{$var-search-input} {
+			display: none;
+		}
+		li.firstChild {
+			&#search-input {
+				float: right;
+				margin: 15px 0;
+				position: absolute;
+				right: 5px;
+				visibility: hidden;
+			}
+		}
+	}
+
 	input.search-text {
 		width: calc(100% - 10px);
 		padding-top: 10px;

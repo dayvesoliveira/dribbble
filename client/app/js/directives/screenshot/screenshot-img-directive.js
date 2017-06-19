@@ -21,16 +21,14 @@ function ScreenshotImgDirective() {
 
   function linkPost( $scope, $element, attr ){
 
-      var isLarge  = !$scope.largeImages ? false : true;
-      // console.log('isLarge: ', isLarge, '$element: ', $element);
-
+      var isLarge = (!$scope.largeImages ? false : true),
+          targets = angular.element( $element )
+                           .find('.dribbble-over .comment');
+      
       $scope.image = isLarge ? $scope.imageLarge : $scope.image;
-      // console.log('$scope.image', $scope.image);
-
-      var targets = angular.element( $element ).find('.dribbble-over .comment');
+      
       if ( targets !== null && $scope.description !== null && $scope.description !== "" ) {
           targets.innerHTML = $scope.description;
-          // console.log(targets, $scope.description);
       }
   }
 }
