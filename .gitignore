@@ -1,5 +1,4 @@
-node-modules/*
-files-dayves/*
+/files-dayves/*
 file.css
 important.txt
 screenshot.json
