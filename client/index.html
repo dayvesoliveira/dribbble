@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html ng-app="AppDribble">
 <head>
+    <base href="/">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dribble - Test</title>
+    <title>AppDribble - Test</title>
     <link rel="stylesheet" href="app/css/main.css"/>
 </head>
 <body>
-  <div id="header" role="baner">
-      
-  </div>
-  <div ng-view></div>
-  <script src="bundle.js" charset="utf-8"></script>
+  
+
+   <div id="header" role="baner" class="group" ng-controller="ShotsController as shotsCtrl">
+
+        <!-- logo empresa -->
+
+        <div id="header-inner" class="group">
+            <div id="logo">
+                <a href="/">
+                    <img alt="dribble" src="app/images/logo-bw.gif"/>
+                </a>
+            </div>
+        </div>
+
+        <!-- menu navegacao -->
+
+        <div ng-controller="MenuNavController as menuNavCtrl">
+            <button-nav ng-click="menuNavCtrl.clickButton()"></button-nav>
+            <ul id="nav-menu" ng-class="menuNavCtrl.myVar">
+                <li id="search-input">
+                    <form id="formSearchShot" action="https://dribbble.com/search">
+                        <input class="search-text" placeholder="Search" value=""/>
+                    </form>
+                </li>
+                <li id="shots-li">
+                    <a class="has-sub">Shots</a>
+                    <shots-menu-header itens="menuNavCtrl.menuItens"></shots-menu-header>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div ng-view ng-class="largeImages?'large-image': ''">
+        Carregando...
+    </div>
+
+    <script src="bundle.js" charset="utf-8"></script>
 </body>
 </html>

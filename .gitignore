@@ -1,1 +1,5 @@
-node-modules
+node-modules/*
+files-dayves/*
+file.css
+important.txt
+screenshot.json

@@ -1,0 +1,86 @@
+<div id="wrap">
+        
+        <!-- toolbar shots -->
+        
+        <div class="tabs-toolbar">
+            <ul class="shot-menu tabs-toolbar-links">
+                
+                <li class="more active">
+                    <a href="/">Back</a>
+                </li>
+            </ul>
+        </div>  
+        
+        <!-- lista de shots -->
+        <div id="wrap-inner">
+            <div id="content">
+                <div id="main" class="main-full">
+
+                    <!-- avatar -->
+
+                    <div class="row">
+                        <div class="column column-2"></div>
+                        <div class="column column-8">
+                            <div class="avatar">
+                                <img src="{{shot.user.avatar_url}}" class="avatar"/>
+                            </div>
+                            <div class="column">
+                                <h1>{{shot.user.title}}</h1>
+                                <h2>by {{shot.user.name}}</h2>
+                            </div>
+                        </div>
+                        <div class="column column-2"></div>
+                    </div>
+                    <div class="row"><br></div>
+                    
+                    <!-- rede social -->
+
+                    <div class="row">
+                        <div class="column column-2"></div>
+                        <div class="column column-5">
+                            <div class="the-shot">
+                                <div class="single">
+                                    <img src="{{shot.images.normal}}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column column-5 shot-view">
+                            <ul class="shot-stats">
+                                <li>
+                                    <a href="{{shot.user.likes_url}}">
+                                        <img src="/app/images/icon-shotstat-like.png" alt="Icon shotstat like">
+                                        <span class="statsnum">Like?</span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="statsnum">{{shot.user.likes_count}} Likes</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/app/images/icon-shotstat-share.png" alt="Icon shotstat share">
+                                        <span class="statsnum">Share</span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="statsnum">{{shot.views_count}} Views</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="column column-12">
+                                <span>{{shot.user.bio}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <screenshot>
+                        <screenshot-item ng-repeat="item in shots" id="screenshot-{{item.id}}">
+                            <screenshot-attribute></screenshot-attribute>
+                            <screenshot-extras></screenshot-extras>
+                        </screenshot-item>
+                    </screenshot>
+                </div>
+            </div>
+        </div>
+  
+</div>

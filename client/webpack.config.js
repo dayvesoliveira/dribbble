@@ -11,5 +11,14 @@ module.exports = {
             test: /\.js$/,
             loader: 'babel-loader'
         }]
+    },
+    
+    devServer: {
+        port: 9999,
+        proxy: {            
+            "/client": {
+                secure: false
+            }
+        }
     }
 }

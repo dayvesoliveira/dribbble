@@ -1,0 +1,50 @@
+<div id="wrap">
+        
+        <!-- toolbar shots -->
+        
+        <div class="tabs-toolbar">
+            <ul class="shot-menu tabs-toolbar-links">
+                <!-- mais visitados -->
+                <li class="more active">
+                    <a href="/">Popular
+                        <span class="ico ico-chevron-down ico-arrow-down" 
+                            aria-hidden="true">
+                        </span>
+                    </a>
+                    <ul>
+                        <li ng-repeat="sort in sortShorts">
+                            <a href="{{sort.url}}">{{sort.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- tamanho das imagens -->
+                <li class="more active">
+                    <a href="/">Tamanho
+                        <span class="ico ico-chevron-down ico-arrow-down" 
+                            aria-hidden="true">
+                        </span>
+                    </a>
+                    <ul>
+                        <li ng-repeat="widthmenu in widthShorts">
+                            <a href="{{widthmenu.url}}">{{widthmenu.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>  
+        
+        <!-- lista de shots -->
+        <div id="wrap-inner">
+            <div id="content">
+                <div id="main" class="main-full">
+                    <screenshot>
+                        <screenshot-item ng-repeat="item in shots" id="screenshot-{{item.id}}">
+                            <screenshot-attribute></screenshot-attribute>
+                            <screenshot-extras></screenshot-extras>
+                        </screenshot-item>
+                    </screenshot>
+                </div>
+            </div>
+        </div>
+  
+</div>

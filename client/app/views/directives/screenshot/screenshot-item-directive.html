@@ -1,0 +1,23 @@
+<li class="group">
+    <div class="dribbble">
+        <div class="dribbble-shot">
+            <screenshot-img title="{{item.title}}" 
+                description="{{item.description}}"
+                image="item.images.normal"
+                image-small="{{item.images.teaser}}"
+                image-large="{{item.images.hidpi}}"
+                html-url="{{item.html_url}}"
+                time="{{item.created_at}}"
+                id="{{item.id}}">
+            </screenshot-img>
+            
+            <screenshot-tools
+                html-url="{{item.html_url}}"
+                likes-count="{{item.likes-count}}"
+                buckets-count="{{item.buckets-count}}",
+                views-count="{{item.views-count}}">
+            </screenshot-tools>
+        </div>
+        <ng-transclude />
+    </div>
+</li>
