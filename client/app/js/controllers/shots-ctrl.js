@@ -1,11 +1,23 @@
-ShotsController.$inject = ['$scope','$routeParams','ShotFactory','MenuFactory'];
+ShotsController.$inject = ['$scope','$document','$routeParams','ShotFactory','MenuFactory', 'MenuItensFactory'];
 
-function ShotsController($scope, $routeParams, ShotFactory, MenuFactory) {
+function ShotsController($scope, $document, $routeParams, ShotFactory, 
+        MenuFactory, MenuItensFactory) {
+    
     var vm = this;
-    $scope.shots       = [];
-    $scope.searchText  = "";
+    vm.ishide   = true;
+    vm.openMenu = openMenu;
+
+    $scope.shot = {
+        shots: [],
+        menuItens: MenuItensFactory.getMenuItens(),
+        sortShorts: MenuFactory.getSort(),
+        widthShorts: MenuFactory.getWidthShots()
+    };
+
+/*    $scope.shots       = [];
+    $scope.menuItens   = MenuItensFactory.getMenuItens();
     $scope.sortShorts  = MenuFactory.getSort();
-    $scope.widthShorts = MenuFactory.getWidthShots();
+    $scope.widthShorts = MenuFactory.getWidthShots();*/
     
     // de acordo com o parametro informado altera o tamanho das imagens.
     $scope.largeImages = $routeParams.typeImages === 'large'? true:false;
@@ -21,9 +33,35 @@ function ShotsController($scope, $routeParams, ShotFactory, MenuFactory) {
     
     // armazenado o retorno.
     promise.then(( response )=>{
-                    $scope.shots = response.data;
+                    $scope.shot.shots = response.data;
                 })
                 .catch((error)=>console.log(error));
+
+    function openMenu() {
+        vm.ishide = vm.ishide ? false : true;
+        vm.myVar  = vm.ishide ? "":"nav-open";
+        vm.classVisSearch = ( vm.ishide ? "":"shots-li visibleSearch" );
+
+        var input = $document[0].getElementById('search-input');
+        if ( input ) {
+            var li  = $document[0].querySelectorAll('#nav-menu > li');
+            var $input = angular.element( input );
+
+            var display = $input.css('display'),
+                vis     = (display !== 'block') ? true : false;
+
+            $input.css({'display': vis ? 'block':'',
+                        'position': vis ? 'relative':'absolute', 
+                        'float': vis ? 'left' : 'right'});
+            
+            var parent = angular.element( input.parentNode );
+            parent.css({'background': vis ? '#2f2f2f':'transparent'});
+
+            var $li = angular.element(li);
+            $li.css({'line-height': vis ? '10px':'1',
+                     'float': vis ? 'left':'_'});
+        }
+    }
 }
 
 export default ShotsController;

@@ -7,10 +7,10 @@
     <title>AppDribble - Test</title>
     <link rel="stylesheet" href="app/css/main.css"/>
 </head>
-<body>
+<body ng-controller="ShotsController as shotsCtrl">
   
 
-   <div id="header" role="baner" class="group" ng-controller="ShotsController as shotsCtrl">
+   <div id="header" role="baner" class="group">
 
         <!-- logo empresa -->
 
@@ -24,16 +24,19 @@
 
         <!-- menu navegacao -->
 
-        <div ng-controller="MenuNavController as menuNavCtrl">
-            <button-nav ng-click="menuNavCtrl.clickButton()"></button-nav>
-            <ul id="nav-menu" ng-class="menuNavCtrl.myVar">
-                <li id="search-input" ng-class="menuNavCtrl.classVisSearch">
-                    <input class="search-text" placeholder="Search"
+        <div>
+            <button-nav ng-click="shotsCtrl.openMenu()"></button-nav>
+            <ul id="nav-menu" ng-class="shotsCtrl.myVar">
+                <li id="search-input" ng-class="shotsCtrl.classVisSearch">
+                    <form id="search">
+                    <input class="search-text" 
+                        placeholder="Search"
                         ng-model="searchText" />
+                    </form>
                 </li>
                 <li id="shots-li">
                     <a class="has-sub">Shots</a>
-                    <shots-menu-header itens="menuNavCtrl.menuItens"></shots-menu-header>
+                    <shots-menu-header itens="menuItens"></shots-menu-header>
                 </li>
             </ul>
         </div>

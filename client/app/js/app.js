@@ -4,7 +4,6 @@ import 'angular-route';
 import ShotsController from './controllers/shots-ctrl';
 import ViewShotsController from './controllers/view-shots-ctrl';
 import ChangeWidthController from './controllers/change-width-ctrl';
-import MenuNavController from './controllers/menu-nav-ctrl';
 import ButtonNavDirective from './directives/button-nav-directive';
 import ShotsMenuHeaderDirective from './directives/shots-menu-header-directive';
 import ScreenshotModule from './screenshotModule';
@@ -18,7 +17,6 @@ angular.module('AppDribble', ['ngRoute','ServicesModule','ScreenshotModule'])
        .config( AppRoutes )
        .controller('ShotsController', ShotsController)
        .controller('ViewShotsController', ViewShotsController)
-       .controller('MenuNavController', MenuNavController)
        .controller('ChangeWidthController', ChangeWidthController)
        .directive('shotsMenuHeader', ShotsMenuHeaderDirective)
        .directive('buttonNav', ButtonNavDirective)
