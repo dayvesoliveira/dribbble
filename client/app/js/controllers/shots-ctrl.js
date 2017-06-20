@@ -7,14 +7,12 @@ function ShotsController($scope, $document, $routeParams, ShotFactory,
     vm.ishide   = true;
     vm.openMenu = openMenu;
 
-    $scope.shot = {
-        shots: [],
-        menuItens: MenuItensFactory.getMenuItens(),
-        sortShorts: MenuFactory.getSort(),
-        widthShorts: MenuFactory.getWidthShots()
-    };
+    $scope.shots = [];
+    $scope.menuItens = MenuItensFactory.getMenuItens();
+    $scope.sortShorts = MenuFactory.getSort();
+    $scope.widthShorts = MenuFactory.getWidthShots();
 
-/*    $scope.shots       = [];
+/*  $scope.shots       = [];
     $scope.menuItens   = MenuItensFactory.getMenuItens();
     $scope.sortShorts  = MenuFactory.getSort();
     $scope.widthShorts = MenuFactory.getWidthShots();*/
@@ -33,7 +31,7 @@ function ShotsController($scope, $document, $routeParams, ShotFactory,
     
     // armazenado o retorno.
     promise.then(( response )=>{
-                    $scope.shot.shots = response.data;
+                    $scope.shots = response.data;
                 })
                 .catch((error)=>console.log(error));
 
