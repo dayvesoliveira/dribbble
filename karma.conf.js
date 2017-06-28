@@ -66,6 +66,12 @@ module.exports = function(config) {
 
     //plugins: ['karma-chrome-launcher'],
 
+    plugins: [
+      "karma-chrome-launcher",
+      "karma-jasmine",
+      "karma-requirejs"
+    ],
+
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
